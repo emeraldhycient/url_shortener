@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>welcome to url shrinker</title>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>url shrinker</h1>
+        </center>
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <form class="form-inline" method="POST" action="/shrinkurl">
+                    <input type="url" name="urlpath" id="urlpath" placeholder="enter url.." class="form-control col mr-2" required>
+                    <button type="submit" name="shrink" class="btn btn-info">shrink</button>
+                </form>
+                <table class=" table table-striped table-bordered p-2 mt-5 table-resonsive">
+                    <thead>
+                        <th class="p-2">full url</th>
+                        <th class="p-2">short url</th>
+                        <th class="p-2">clicks</th>
+                    </thead>
+                    <tbody>
+                        <% shorturls.forEach((shorturl,i)=>{ %>
+                            <tr>
+                                <td class="p-2">
+                                    <a href="<%= shorturl.fullurl  %> ">
+                                        <%= shorturl.fullurl  %>
+                                    </a>
+                                </td>
+                                <td class="p-2">
+                                    <a href="<%= shorturl.shorturl  %> ">
+                                        <%= shorturl.shorturl  %>
+                                    </a>
+                                </td>
+                                <td class="p-2">
+                                    <%= shorturl.clicks  %>
+                                </td>
+                            </tr>
+                            <%}) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</html>
